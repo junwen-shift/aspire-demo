@@ -1,0 +1,12 @@
+C:\Users\junwen.yin\Work\aspire-demo\aspire-demo.ServiceDefaults\bin\Debug\net9.0\aspire-demo.ServiceDefaults.deps.json
+C:\Users\junwen.yin\Work\aspire-demo\aspire-demo.ServiceDefaults\bin\Debug\net9.0\aspire-demo.ServiceDefaults.dll
+C:\Users\junwen.yin\Work\aspire-demo\aspire-demo.ServiceDefaults\bin\Debug\net9.0\aspire-demo.ServiceDefaults.pdb
+C:\Users\junwen.yin\Work\aspire-demo\aspire-demo.ServiceDefaults\obj\Debug\net9.0\aspire-demo.ServiceDefaults.csproj.AssemblyReference.cache
+C:\Users\junwen.yin\Work\aspire-demo\aspire-demo.ServiceDefaults\obj\Debug\net9.0\aspire-demo.ServiceDefaults.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\junwen.yin\Work\aspire-demo\aspire-demo.ServiceDefaults\obj\Debug\net9.0\aspire-demo.ServiceDefaults.AssemblyInfoInputs.cache
+C:\Users\junwen.yin\Work\aspire-demo\aspire-demo.ServiceDefaults\obj\Debug\net9.0\aspire-demo.ServiceDefaults.AssemblyInfo.cs
+C:\Users\junwen.yin\Work\aspire-demo\aspire-demo.ServiceDefaults\obj\Debug\net9.0\aspire-demo.ServiceDefaults.csproj.CoreCompileInputs.cache
+C:\Users\junwen.yin\Work\aspire-demo\aspire-demo.ServiceDefaults\obj\Debug\net9.0\aspire-demo.ServiceDefaults.dll
+C:\Users\junwen.yin\Work\aspire-demo\aspire-demo.ServiceDefaults\obj\Debug\net9.0\refint\aspire-demo.ServiceDefaults.dll
+C:\Users\junwen.yin\Work\aspire-demo\aspire-demo.ServiceDefaults\obj\Debug\net9.0\aspire-demo.ServiceDefaults.pdb
+C:\Users\junwen.yin\Work\aspire-demo\aspire-demo.ServiceDefaults\obj\Debug\net9.0\ref\aspire-demo.ServiceDefaults.dll
