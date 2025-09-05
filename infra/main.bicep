@@ -12,6 +12,12 @@ param location string
 @description('Id of the user or app to assign application roles')
 param principalId string = ''
 
+param environment string
+param instance string
+param organization string
+param project string
+param region string
+param workload string
 
 var tags = {
   'azd-env-name': environmentName

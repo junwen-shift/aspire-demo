@@ -2,7 +2,7 @@
 param location string = resourceGroup().location
 
 resource cosmosdb_account 'Microsoft.DocumentDB/databaseAccounts@2024-08-15' = {
-  name: take('cosmosdbaccount-${uniqueString(resourceGroup().id)}', 44)
+  name: '{organization.value}-{region.value}-{environment.value}-{workload.value}-cosno-{project.value}-{instance.value}'
   location: location
   properties: {
     locations: [

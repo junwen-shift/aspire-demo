@@ -10219,41 +10219,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\junwen.yin\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\MI\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\junwen.yin\\Work\\aspire-demo\\aspire-demo.Tests\\aspire-demo.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\MI\\work\\aspire-demo\\aspire-demo.Tests\\aspire-demo.Tests.csproj",
       "projectName": "aspire-demo.Tests",
-      "projectPath": "C:\\Users\\junwen.yin\\Work\\aspire-demo\\aspire-demo.Tests\\aspire-demo.Tests.csproj",
-      "packagesPath": "C:\\Users\\junwen.yin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\junwen.yin\\Work\\aspire-demo\\aspire-demo.Tests\\obj\\",
+      "projectPath": "C:\\Users\\MI\\work\\aspire-demo\\aspire-demo.Tests\\aspire-demo.Tests.csproj",
+      "packagesPath": "C:\\Users\\MI\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\MI\\work\\aspire-demo\\aspire-demo.Tests\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\junwen.yin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\MI\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.pkg.github.com/shift-technology/index.json": {},
-        "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\junwen.yin\\Work\\aspire-demo\\aspire-demo.AppHost\\aspire-demo.AppHost.csproj": {
-              "projectPath": "C:\\Users\\junwen.yin\\Work\\aspire-demo\\aspire-demo.AppHost\\aspire-demo.AppHost.csproj"
+            "C:\\Users\\MI\\work\\aspire-demo\\aspire-demo.AppHost\\aspire-demo.AppHost.csproj": {
+              "projectPath": "C:\\Users\\MI\\work\\aspire-demo\\aspire-demo.AppHost\\aspire-demo.AppHost.csproj"
             }
           }
         }
@@ -10294,12 +10285,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.Net.Sdk.Compilers.Toolset",
-            "version": "[9.0.304, 9.0.304]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
@@ -10308,25 +10293,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1900",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
-    },
-    {
-      "code": "NU1900",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json."
-    },
-    {
-      "code": "NU1900",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://nuget.pkg.github.com/shift-technology/index.json."
-    }
-  ]
+  }
 }

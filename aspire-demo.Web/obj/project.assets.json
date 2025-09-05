@@ -2045,41 +2045,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\junwen.yin\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\MI\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\junwen.yin\\Work\\aspire-demo\\aspire-demo.Web\\aspire-demo.Web.csproj",
+      "projectUniqueName": "C:\\Users\\MI\\work\\aspire-demo\\aspire-demo.Web\\aspire-demo.Web.csproj",
       "projectName": "aspire-demo.Web",
-      "projectPath": "C:\\Users\\junwen.yin\\Work\\aspire-demo\\aspire-demo.Web\\aspire-demo.Web.csproj",
-      "packagesPath": "C:\\Users\\junwen.yin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\junwen.yin\\Work\\aspire-demo\\aspire-demo.Web\\obj\\",
+      "projectPath": "C:\\Users\\MI\\work\\aspire-demo\\aspire-demo.Web\\aspire-demo.Web.csproj",
+      "packagesPath": "C:\\Users\\MI\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\MI\\work\\aspire-demo\\aspire-demo.Web\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\junwen.yin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\MI\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.pkg.github.com/shift-technology/index.json": {},
-        "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\junwen.yin\\Work\\aspire-demo\\aspire-demo.ServiceDefaults\\aspire-demo.ServiceDefaults.csproj": {
-              "projectPath": "C:\\Users\\junwen.yin\\Work\\aspire-demo\\aspire-demo.ServiceDefaults\\aspire-demo.ServiceDefaults.csproj"
+            "C:\\Users\\MI\\work\\aspire-demo\\aspire-demo.ServiceDefaults\\aspire-demo.ServiceDefaults.csproj": {
+              "projectPath": "C:\\Users\\MI\\work\\aspire-demo\\aspire-demo.ServiceDefaults\\aspire-demo.ServiceDefaults.csproj"
             }
           }
         }

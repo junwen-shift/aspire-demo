@@ -1,0 +1,13 @@
+C:\Users\MI\work\aspire-demo\aspire-demo.ServiceDefaults\bin\Debug\net9.0\aspire-demo.ServiceDefaults.deps.json
+C:\Users\MI\work\aspire-demo\aspire-demo.ServiceDefaults\bin\Debug\net9.0\aspire-demo.ServiceDefaults.dll
+C:\Users\MI\work\aspire-demo\aspire-demo.ServiceDefaults\bin\Debug\net9.0\aspire-demo.ServiceDefaults.pdb
+C:\Users\MI\work\aspire-demo\aspire-demo.ServiceDefaults\obj\Debug\net9.0\aspire-demo.ServiceDefaults.csproj.AssemblyReference.cache
+C:\Users\MI\work\aspire-demo\aspire-demo.ServiceDefaults\obj\Debug\net9.0\aspire-demo.ServiceDefaults.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MI\work\aspire-demo\aspire-demo.ServiceDefaults\obj\Debug\net9.0\aspire-demo.ServiceDefaults.AssemblyInfoInputs.cache
+C:\Users\MI\work\aspire-demo\aspire-demo.ServiceDefaults\obj\Debug\net9.0\aspire-demo.ServiceDefaults.AssemblyInfo.cs
+C:\Users\MI\work\aspire-demo\aspire-demo.ServiceDefaults\obj\Debug\net9.0\aspire-demo.ServiceDefaults.csproj.CoreCompileInputs.cache
+C:\Users\MI\work\aspire-demo\aspire-demo.ServiceDefaults\obj\Debug\net9.0\aspire-demo.ServiceDefaults.sourcelink.json
+C:\Users\MI\work\aspire-demo\aspire-demo.ServiceDefaults\obj\Debug\net9.0\aspire-demo.ServiceDefaults.dll
+C:\Users\MI\work\aspire-demo\aspire-demo.ServiceDefaults\obj\Debug\net9.0\refint\aspire-demo.ServiceDefaults.dll
+C:\Users\MI\work\aspire-demo\aspire-demo.ServiceDefaults\obj\Debug\net9.0\aspire-demo.ServiceDefaults.pdb
+C:\Users\MI\work\aspire-demo\aspire-demo.ServiceDefaults\obj\Debug\net9.0\ref\aspire-demo.ServiceDefaults.dll

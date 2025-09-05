@@ -6,21 +6,21 @@ using Microsoft.Extensions.DependencyInjection;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
-var azureRegion = builder.AddParameter("AZURE_REGION", "eus1");
-var azureOrg = builder.AddParameter("AZURE_ORG", "sh");
-var azureWorkload = builder.AddParameter("AZURE_WORKLOAD", "asd");
-var azureProject = builder.AddParameter("AZURE_PROJECT", "shrd");
-var azureInstance = builder.AddParameter("AZURE_INSTANCE", "001");
-var azureEnv = builder.AddParameter("AZURE_ENV", "dev");
+var azureRegion = builder.AddParameter("region");
+var azureOrg = builder.AddParameter("organization");
+var azureWorkload = builder.AddParameter("workload");
+var azureProject = builder.AddParameter("project");
+var azureInstance = builder.AddParameter("instance");
+var azureEnv = builder.AddParameter("environment");
 
 var context = new Context
 {
-    Region = string.IsNullOrWhiteSpace(azureRegion) ? "frc1" : azureRegion,
-    Organization = string.IsNullOrWhiteSpace(azureOrg) ? "sh" : azureOrg,
-    Workload = string.IsNullOrWhiteSpace(azureWorkload) ? "asd" : azureWorkload,
-    Project = string.IsNullOrWhiteSpace(azureProject) ? "shrd" : azureProject,
-    Instance = string.IsNullOrWhiteSpace(azureInstance) ? "001" : azureInstance,
-    Environment = string.IsNullOrWhiteSpace(azureEnv) ? "dev" : azureEnv,
+    Region = string.IsNullOrWhiteSpace(azureRegion.Resource.ValueExpression) ? "frc1" : azureRegion.Resource.ValueExpression,
+    Organization = string.IsNullOrWhiteSpace(azureOrg.Resource.ValueExpression) ? "sh" : azureOrg.Resource.ValueExpression,
+    Workload = string.IsNullOrWhiteSpace(azureWorkload.Resource.ValueExpression) ? "asd" : azureWorkload.Resource.ValueExpression,
+    Project = string.IsNullOrWhiteSpace(azureProject.Resource.ValueExpression) ? "shrd" : azureProject.Resource.ValueExpression,
+    Instance = string.IsNullOrWhiteSpace(azureInstance.Resource.ValueExpression) ? "001" : azureInstance.Resource.ValueExpression,
+    Environment = string.IsNullOrWhiteSpace(azureEnv.Resource.ValueExpression) ? "dev" : azureEnv.Resource.ValueExpression,
 };
 
 builder.Services.Configure<AzureProvisioningOptions>(options =>
