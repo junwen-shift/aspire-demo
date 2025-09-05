@@ -1,16 +1,17 @@
 using Aspire.Hosting.Azure;
 using Azure.Provisioning;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 
 var builder = DistributedApplication.CreateBuilder(args);
 
-var azureRegion = Environment.GetEnvironmentVariable("AZURE_REGION");
-var azureOrg = Environment.GetEnvironmentVariable("AZURE_ORG");
-var azureWorkload = Environment.GetEnvironmentVariable("AZURE_WORKLOAD");
-var azureProject = Environment.GetEnvironmentVariable("AZURE_PROJECT");
-var azureInstance = Environment.GetEnvironmentVariable("AZURE_INSTANCE");
-var azureEnv = Environment.GetEnvironmentVariable("AZURE_ENV");
+var azureRegion = builder.AddParameter("AZURE_REGION", "eus1");
+var azureOrg = builder.AddParameter("AZURE_ORG", "sh");
+var azureWorkload = builder.AddParameter("AZURE_WORKLOAD", "asd");
+var azureProject = builder.AddParameter("AZURE_PROJECT", "shrd");
+var azureInstance = builder.AddParameter("AZURE_INSTANCE", "001");
+var azureEnv = builder.AddParameter("AZURE_ENV", "dev");
 
 var context = new Context
 {

@@ -1,52 +1,28 @@
 {
   "$schema": "https://json.schemastore.org/launchsettings.json",
   "profiles": {
-    "frc1-stg": {
+    "https": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:17161;http://localhost:15259",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Staging",
-        "DOTNET_ENVIRONMENT": "Staging",
-        "AZURE_REGION": "frc1",
-        "AZURE_ORG": "sh",
-        "AZURE_WORKLOAD": "dpd",
-        "AZURE_ENV": "stg",
-        "ASPIRE_DASHBOARD_OTLP_ENDPOINT_URL": "https://localhost:21130",
-        "ASPIRE_RESOURCE_SERVICE_ENDPOINT_URL": "https://localhost:22154"
-      }
-    },
-    "frc1-pprd": {
-      "commandName": "Project",
-      "dotnetRunMessages": true,
-      "launchBrowser": true,
-      "applicationUrl": "https://localhost:17162;http://localhost:15260",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Preproduction",
-        "DOTNET_ENVIRONMENT": "Preproduction",
-        "AZURE_LOCATION": "frc1",
-        "AZURE_ORG": "sh",
-        "AZURE_WORKLOAD": "dpd",
-        "AZURE_ENV": "stg",
-        "ASPIRE_DASHBOARD_OTLP_ENDPOINT_URL": "https://localhost:21131",
-        "ASPIRE_RESOURCE_SERVICE_ENDPOINT_URL": "https://localhost:22155"
-      }
-    },
-    "dev": {
-      "commandName": "Project",
-      "dotnetRunMessages": true,
-      "launchBrowser": true,
-      "applicationUrl": "http://localhost:15259",
+      "applicationUrl": "https://localhost:15179;http://localhost:15178",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "DOTNET_ENVIRONMENT": "Development",
-        "AZURE_LOCATION": "frc1",
-        "AZURE_ORG": "sh",
-        "AZURE_WORKLOAD": "dpd",
-        "AZURE_ENV": "dev",
-        "ASPIRE_DASHBOARD_OTLP_ENDPOINT_URL": "http://localhost:19167",
-        "ASPIRE_RESOURCE_SERVICE_ENDPOINT_URL": "http://localhost:20046"
+        "ASPIRE_DASHBOARD_OTLP_ENDPOINT_URL": "https://localhost:16224",
+        "ASPIRE_RESOURCE_SERVICE_ENDPOINT_URL": "https://localhost:22123"
+      }
+    },
+    "http": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "http://localhost:15178",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DOTNET_ENVIRONMENT": "Development",
+        "ASPIRE_DASHBOARD_OTLP_ENDPOINT_URL": "http://localhost:16223",
+        "ASPIRE_RESOURCE_SERVICE_ENDPOINT_URL": "http://localhost:21123"
       }
     }
   }
