@@ -2,7 +2,7 @@
 param location string = resourceGroup().location
 
 resource cosmosdb_account 'Microsoft.DocumentDB/databaseAccounts@2024-08-15' = {
-  name: '{organization.value}-{region.value}-{environment.value}-{workload.value}-cosno-{project.value}-{instance.value}'
+  name: 'sh-frc1-dev-demo-cosno-xxxx-001'
   location: location
   properties: {
     locations: [

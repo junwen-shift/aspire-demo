@@ -1,6 +1,7 @@
 using Azure.Provisioning;
 using Azure.Provisioning.Primitives;
 using Azure.Provisioning.CosmosDB;
+using Azure.Provisioning.Expressions;
 
 internal sealed class NameInfrastructureResolver(Context context) : InfrastructureResolver
 {
@@ -8,12 +9,29 @@ internal sealed class NameInfrastructureResolver(Context context) : Infrastructu
 
     public override void ResolveProperties(ProvisionableConstruct construct, ProvisioningBuildOptions options)
     {
-        if (construct is CosmosDBAccount account)
+        // Generate names based on resource type
+        switch (construct)
         {
-            account.Name = $"{_context.NamingConventionPrefix}-cosno-{_context.NamingConventionSuffix}";
+            case CosmosDBAccount account:
+                account.Name = GenerateResourceName("cosno"); // cosmos-nosql
+                break;
+            // Add more resource types as needed
+            // case StorageAccount storage:
+            //     storage.Name = GenerateResourceName("st");
+            //     break;
+            // case KeyVault keyVault:
+            //     keyVault.Name = GenerateResourceName("kv");
+            //     break;
         }
 
         base.ResolveProperties(construct, options);
+    }
+
+    private BicepValue<string> GenerateResourceName(string resourceTypeAbbreviation)
+    {
+        // Create a proper ARM template expression for resource naming
+        // This uses string interpolation with parameter references
+        return BicepFunction.Interpolate($"{_context.Organization}-{_context.Region}-{_context.Environment}-{_context.Workload}-{resourceTypeAbbreviation}-{_context.Project}-{_context.Instance}");
     }
 }
 

@@ -5,22 +5,22 @@
       "principalId": {
         "value": "${AZURE_PRINCIPAL_ID}"
       },
-      "environment": {
+      "Environment": {
         "value": "${AZURE_ENVIRONMENT}"
       },
-      "instance": {
+      "Instance": {
         "value": "${AZURE_INSTANCE}"
       },
-      "organization": {
+      "Organization": {
         "value": "${AZURE_ORGANIZATION}"
       },
-      "project": {
+      "Project": {
         "value": "${AZURE_PROJECT}"
       },
-      "region": {
+      "Region": {
         "value": "${AZURE_REGION}"
       },
-      "workload": {
+      "Workload": {
         "value": "${AZURE_WORKLOAD}"
       },
       "environmentName": {
