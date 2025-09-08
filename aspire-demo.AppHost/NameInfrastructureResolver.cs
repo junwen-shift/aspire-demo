@@ -31,7 +31,7 @@ internal sealed class NameInfrastructureResolver(Context context) : Infrastructu
     {
         // Create a proper ARM template expression for resource naming
         // This uses string interpolation with parameter references
-        return BicepFunction.Interpolate($"{_context.Organization}-{_context.Region}-{_context.Environment}-{_context.Workload}-{resourceTypeAbbreviation}-{_context.Project}-{_context.Instance}");
+        return BicepFunction.Interpolate($"{_context.NamingConventionPrefix}-{resourceTypeAbbreviation}-{_context.NamingConventionSuffix}");
     }
 }
 

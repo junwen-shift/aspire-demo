@@ -8,29 +8,27 @@ using Azure.Provisioning.Expressions;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
-var azureRegion = builder.AddParameter("Region");
-var azureOrg = builder.AddParameter("Organization");
-var azureWorkload = builder.AddParameter("Workload");
-var azureProject = builder.AddParameter("Project");
-var azureInstance = builder.AddParameter("Instance");
-var azureEnv = builder.AddParameter("Environment");
-var source = new CancellationTokenSource();
-var token = source.Token;
-var prj = builder.Configuration.GetValue<string>("Parameters:Project") ?? "ffff";
+var azureRegion = builder.Configuration.GetValue<String>("Parameters:Region");
+var azureOrg = builder.Configuration.GetValue<String>("Parameters:Organization");
+var azureWorkload = builder.Configuration.GetValue<String>("Parameters:Workload");
+var azureProject = builder.Configuration.GetValue<String>("Parameters:Project");
+var azureInstance = builder.Configuration.GetValue<String>("Parameters:Instance");
+var azureEnv = builder.Configuration.GetValue<String>("Parameters:Environment");
+
 var context = new Context
 {
-    Region = await azureRegion.Resource.GetValueAsync(token),
-    Organization = await azureOrg.Resource.GetValueAsync(token),
-    Workload = await azureWorkload.Resource.GetValueAsync(token),
-    Project = prj,
-    Instance = await azureInstance.Resource.GetValueAsync(token),
-    Environment = await azureEnv.Resource.GetValueAsync(token),
+    Region = azureRegion,
+    Organization = azureOrg,
+    Workload = azureWorkload,
+    Project = azureProject,
+    Instance = azureInstance,
+    Environment = azureEnv,
 };
 
-// builder.Services.Configure<AzureProvisioningOptions>(options =>
-// {
-//     options.ProvisioningBuildOptions.InfrastructureResolvers.Insert(0, new NameInfrastructureResolver(context));
-// });
+builder.Services.Configure<AzureProvisioningOptions>(options =>
+{
+    options.ProvisioningBuildOptions.InfrastructureResolvers.Insert(0, new NameInfrastructureResolver(context));
+});
 
 var apiService = builder.AddProject<Projects.aspire_demo_ApiService>("apiservice")
     .WithHttpHealthCheck("/health");
@@ -40,7 +38,7 @@ var cosmosDbAccount = builder.AddAzureCosmosDB("cosmosdb-account")
     .ConfigureInfrastructure(infra =>
     {
         var cosmosAccount = infra.GetProvisionableResources().OfType<CosmosDBAccount>().Single();
-        cosmosAccount.Name = BicepFunction.Interpolate($"{context.NamingConventionPrefix}-cosno-{context.NamingConventionSuffix}");
+        // cosmosAccount.Name = BicepFunction.Interpolate($"{context.NamingConventionPrefix}-cosno-{context.NamingConventionSuffix}");
     })
     .RunAsPreviewEmulator(emulator =>
     {

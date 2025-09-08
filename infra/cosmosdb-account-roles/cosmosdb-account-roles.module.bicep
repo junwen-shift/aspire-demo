@@ -6,7 +6,7 @@ param cosmosdb_account_outputs_name string
 param principalId string
 
 resource cosmosdb_account 'Microsoft.DocumentDB/databaseAccounts@2024-08-15' existing = {
-  name: cosmosdb_account_outputs_name
+  name: 'sh-frc1-stg-demo-cosno-shrd-001'
 }
 
 resource cosmosdb_account_roleDefinition 'Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions@2024-08-15' existing = {
