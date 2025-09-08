@@ -1,4 +1,4 @@
-targetScope = 'subscription'
+targetScope = 'resourceGroup'
 
 @minLength(1)
 @maxLength(64)
@@ -12,18 +12,18 @@ param location string
 @description('Id of the user or app to assign application roles')
 param principalId string = ''
 
+param serviceEnvironment string
+param serviceInstance string
+param serviceOrganization string
+param serviceProject string
+param serviceRegion string
+param serviceWorkload string
 
 var tags = {
   'azd-env-name': environmentName
 }
 
-resource rg 'Microsoft.Resources/resourceGroups@2022-09-01' = {
-  name: 'rg-${environmentName}'
-  location: location
-  tags: tags
-}
 module resources 'resources.bicep' = {
-  scope: rg
   name: 'resources'
   params: {
     location: location
@@ -34,14 +34,18 @@ module resources 'resources.bicep' = {
 
 module cosmosdb_account 'cosmosdb-account/cosmosdb-account.module.bicep' = {
   name: 'cosmosdb-account'
-  scope: rg
   params: {
     location: location
+    serviceEnvironment: serviceEnvironment
+    serviceInstance: serviceInstance
+    serviceOrganization: serviceOrganization
+    serviceProject: serviceProject
+    serviceRegion: serviceRegion
+    serviceWorkload: serviceWorkload
   }
 }
 module cosmosdb_account_roles 'cosmosdb-account-roles/cosmosdb-account-roles.module.bicep' = {
   name: 'cosmosdb-account-roles'
-  scope: rg
   params: {
     cosmosdb_account_outputs_name: cosmosdb_account.outputs.name
     location: location

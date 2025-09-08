@@ -3,9 +3,9 @@ using Azure.Provisioning.Primitives;
 using Azure.Provisioning.CosmosDB;
 using Azure.Provisioning.Expressions;
 
-internal sealed class NameInfrastructureResolver(Context context) : InfrastructureResolver
+internal sealed class NameInfrastructureResolver(ServiceContext context) : InfrastructureResolver
 {
-    private readonly Context _context = context;
+    private readonly ServiceContext _context = context;
 
     public override void ResolveProperties(ProvisionableConstruct construct, ProvisioningBuildOptions options)
     {
@@ -31,21 +31,8 @@ internal sealed class NameInfrastructureResolver(Context context) : Infrastructu
     {
         // Create a proper ARM template expression for resource naming
         // This uses string interpolation with parameter references
-        return BicepFunction.Interpolate($"{_context.NamingConventionPrefix}-{resourceTypeAbbreviation}-{_context.NamingConventionSuffix}");
+        return BicepFunction.Interpolate(
+            $"{_context.NamingConventionPrefix}-{resourceTypeAbbreviation}-{_context.NamingConventionSuffix}"
+        );
     }
-}
-
-public struct Context
-{
-    public string Region { get; set; }
-    public string Organization { get; set; }
-    public string Workload { get; set; }
-    public string Project { get; set; }
-    public string Environment { get; set; }
-    public string Instance { get; set; }
-
-    public string NamingConventionPrefix =>
-        $"{Organization}-{Region}-{Environment}-{Workload}";
-    public string NamingConventionSuffix =>
-        $"{Project}-{Instance}";
 }

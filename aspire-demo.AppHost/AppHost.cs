@@ -5,21 +5,21 @@ using Microsoft.Extensions.DependencyInjection;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
-var azureRegion = builder.Configuration.GetValue<String>("Parameters:Region");
-var azureOrg = builder.Configuration.GetValue<String>("Parameters:Organization");
-var azureWorkload = builder.Configuration.GetValue<String>("Parameters:Workload");
-var azureProject = builder.Configuration.GetValue<String>("Parameters:Project");
-var azureInstance = builder.Configuration.GetValue<String>("Parameters:Instance");
-var azureEnv = builder.Configuration.GetValue<String>("Parameters:Environment");
+var serviceEnvironment = builder.AddParameterFromConfiguration("serviceEnvironment", "Parameters:Environment");
+var serviceProject = builder.AddParameterFromConfiguration("serviceProject", "Parameters:Project");
+var serviceInstance = builder.AddParameterFromConfiguration("serviceInstance", "Parameters:Instance");
+var serviceRegion = builder.AddParameterFromConfiguration("serviceRegion", "Parameters:Region");
+var serviceWorkload = builder.AddParameterFromConfiguration("serviceWorkload", "Parameters:Workload");
+var serviceOrganization = builder.AddParameterFromConfiguration("serviceOrganization", "Parameters:Organization");
 
-var context = new Context
+var context = new ServiceContext
 {
-    Region = azureRegion,
-    Organization = azureOrg,
-    Workload = azureWorkload,
-    Project = azureProject,
-    Instance = azureInstance,
-    Environment = azureEnv,
+    Region = serviceRegion,
+    Organization = serviceOrganization,
+    Workload = serviceWorkload,
+    Project = serviceProject,
+    Instance = serviceInstance,
+    Environment = serviceEnvironment,
 };
 
 //builder.Services.Configure<AzureProvisioningOptions>(options =>
@@ -32,6 +32,7 @@ var apiService = builder.AddProject<Projects.aspire_demo_ApiService>("apiservice
 
 #pragma warning disable ASPIRECOSMOSDB001 // This suppresses the warning about using the PREVIEW CosmosDB emulator. The preview emulator is faster and more efficient for development purposes, but it is not recommended for production use.
 var cosmosDbAccount = builder.AddShiftAzureCosmosDB("cosmosdb-account", context)
+    //.WithParameter("serviceEnvironment", serviceEnv)
     .RunAsPreviewEmulator(emulator =>
     {
         emulator.WithLifetime(ContainerLifetime.Persistent); // Use persistent lifetime for the emulator, this allows the emulator to retain data across application restarts.

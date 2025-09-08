@@ -1,8 +1,20 @@
 @description('The location for the resource(s) to be deployed.')
 param location string = resourceGroup().location
 
+param serviceEnvironment string
+
+param serviceOrganization string
+
+param serviceRegion string
+
+param serviceWorkload string
+
+param serviceProject string
+
+param serviceInstance string
+
 resource cosmosdb_account 'Microsoft.DocumentDB/databaseAccounts@2024-08-15' = {
-  name: 'sh-frc1-stg-demo-cosno-shrd-001'
+  name: concat('${serviceOrganization}-${serviceRegion}-${serviceEnvironment}-${serviceWorkload}', '-cosno-', '${serviceProject}-${serviceInstance}')
   location: location
   properties: {
     locations: [
@@ -17,7 +29,7 @@ resource cosmosdb_account 'Microsoft.DocumentDB/databaseAccounts@2024-08-15' = {
       }
     ]
     consistencyPolicy: {
-      defaultConsistencyLevel: 'Strong'
+      defaultConsistencyLevel: 'Session'
     }
     databaseAccountOfferType: 'Standard'
     disableLocalAuth: true
@@ -26,7 +38,9 @@ resource cosmosdb_account 'Microsoft.DocumentDB/databaseAccounts@2024-08-15' = {
   kind: 'GlobalDocumentDB'
   tags: {
     'aspire-resource-name': 'cosmosdb-account'
-    Workload: 'demo'
+    Workload: serviceWorkload
+    Project: serviceProject
+    Environment: serviceEnvironment
   }
 }
 

@@ -2,33 +2,44 @@ using Aspire.Hosting;
 using Aspire.Hosting.Azure;
 using Azure.Provisioning.CosmosDB;
 using Azure.Provisioning.Expressions;
+using k8s.Models;
 using Microsoft.AspNetCore.Mvc.Filters;
 
 public static class ShiftCosmosDbExtensions
 {
-    public static IResourceBuilder<AzureCosmosDBResource> AddShiftAzureCosmosDB(this IDistributedApplicationBuilder builder, string name, Context context)
+    public static IResourceBuilder<AzureCosmosDBResource> AddShiftAzureCosmosDB(this IDistributedApplicationBuilder builder, string name, ServiceContext context)
     {
         // You can customize the logic here as needed
         var cosmosDbAccount = builder.AddAzureCosmosDB(name)
-        .ConfigureInfrastructure(infra =>
-        {
-            var cosmosAccount = infra.GetProvisionableResources().OfType<CosmosDBAccount>().Single();
-            cosmosAccount.Tags.Add("Workload", context.Workload);
-
-            cosmosAccount.Name = BicepFunction.Interpolate($"{context.NamingConventionPrefix}-cosno-{context.NamingConventionSuffix}");
-
-            cosmosAccount.ConsistencyPolicy = new()
+            .WithParameter("serviceEnvironment", context.Environment)
+            .WithParameter("serviceOrganization", context.Organization)
+            .WithParameter("serviceRegion", context.Region)
+            .WithParameter("serviceWorkload", context.Workload)
+            .WithParameter("serviceProject", context.Project)
+            .WithParameter("serviceInstance", context.Instance)
+            .ConfigureInfrastructure(infra =>
             {
-                DefaultConsistencyLevel = DefaultConsistencyLevel.Strong,
-            };
+                var cosmosAccount = infra.GetProvisionableResources().OfType<CosmosDBAccount>().Single();
+                var nameExpression = BicepFunction.Concat(context.NamingConventionPrefix, "-cosno-", context.NamingConventionSuffix);
 
-            cosmosAccount.IsVirtualNetworkFilterEnabled = true;
+                cosmosAccount.Tags.Add("Workload", new IdentifierExpression("serviceWorkload"));
+                cosmosAccount.Tags.Add("Project", new IdentifierExpression("serviceProject"));
+                cosmosAccount.Tags.Add("Environment", new IdentifierExpression("serviceEnvironment"));
 
-            cosmosAccount.IPRules = [];
+                cosmosAccount.Kind = CosmosDBAccountKind.GlobalDocumentDB;
 
-            cosmosAccount.VirtualNetworkRules = []; 
+                cosmosAccount.Name = nameExpression;
 
-        });
+                //cosmosAccount.Capabilities = [];
+
+
+                cosmosAccount.IsVirtualNetworkFilterEnabled = true;
+
+                cosmosAccount.IPRules = [];
+
+                cosmosAccount.VirtualNetworkRules = []; 
+
+            });
         
         return cosmosDbAccount;
     }
