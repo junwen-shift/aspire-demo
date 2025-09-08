@@ -1,9 +1,5 @@
-using Aspire.Hosting;
-using Aspire.Hosting.Azure;
 using Azure.Provisioning.CosmosDB;
 using Azure.Provisioning.Expressions;
-using k8s.Models;
-using Microsoft.AspNetCore.Mvc.Filters;
 
 public static class ShiftCosmosDbExtensions
 {
