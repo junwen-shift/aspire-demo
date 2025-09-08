@@ -2,9 +2,6 @@ using Aspire.Hosting.Azure;
 using Azure.Provisioning;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Azure.Provisioning.CosmosDB;
-using Azure.Provisioning.Expressions;
-
 
 var builder = DistributedApplication.CreateBuilder(args);
 
@@ -25,21 +22,16 @@ var context = new Context
     Environment = azureEnv,
 };
 
-builder.Services.Configure<AzureProvisioningOptions>(options =>
-{
-    options.ProvisioningBuildOptions.InfrastructureResolvers.Insert(0, new NameInfrastructureResolver(context));
-});
+//builder.Services.Configure<AzureProvisioningOptions>(options =>
+//{
+//    options.ProvisioningBuildOptions.InfrastructureResolvers.Insert(0, new NameInfrastructureResolver(context));
+//});
 
 var apiService = builder.AddProject<Projects.aspire_demo_ApiService>("apiservice")
     .WithHttpHealthCheck("/health");
 
 #pragma warning disable ASPIRECOSMOSDB001 // This suppresses the warning about using the PREVIEW CosmosDB emulator. The preview emulator is faster and more efficient for development purposes, but it is not recommended for production use.
-var cosmosDbAccount = builder.AddAzureCosmosDB("cosmosdb-account")
-    .ConfigureInfrastructure(infra =>
-    {
-        var cosmosAccount = infra.GetProvisionableResources().OfType<CosmosDBAccount>().Single();
-        // cosmosAccount.Name = BicepFunction.Interpolate($"{context.NamingConventionPrefix}-cosno-{context.NamingConventionSuffix}");
-    })
+var cosmosDbAccount = builder.AddShiftAzureCosmosDB("cosmosdb-account", context)
     .RunAsPreviewEmulator(emulator =>
     {
         emulator.WithLifetime(ContainerLifetime.Persistent); // Use persistent lifetime for the emulator, this allows the emulator to retain data across application restarts.
@@ -53,6 +45,7 @@ builder.AddProject<Projects.aspire_demo_Web>("webfrontend")
     .WithExternalHttpEndpoints()
     .WithHttpHealthCheck("/health")
     .WithReference(apiService)
+    .WithReference(cosmosDbAccount, "cosmosdb-account")
     .WaitFor(apiService);
 
 builder.Build().Run();

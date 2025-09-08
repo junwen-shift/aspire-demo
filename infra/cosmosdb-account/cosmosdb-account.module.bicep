@@ -17,14 +17,16 @@ resource cosmosdb_account 'Microsoft.DocumentDB/databaseAccounts@2024-08-15' = {
       }
     ]
     consistencyPolicy: {
-      defaultConsistencyLevel: 'Session'
+      defaultConsistencyLevel: 'Strong'
     }
     databaseAccountOfferType: 'Standard'
     disableLocalAuth: true
+    isVirtualNetworkFilterEnabled: true
   }
   kind: 'GlobalDocumentDB'
   tags: {
     'aspire-resource-name': 'cosmosdb-account'
+    Workload: 'demo'
   }
 }
 
