@@ -5,12 +5,12 @@ using Microsoft.Extensions.DependencyInjection;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
-var serviceEnvironment = builder.AddParameterFromConfiguration("serviceEnvironment", "Parameters:Environment");
-var serviceProject = builder.AddParameterFromConfiguration("serviceProject", "Parameters:Project");
-var serviceInstance = builder.AddParameterFromConfiguration("serviceInstance", "Parameters:Instance");
-var serviceRegion = builder.AddParameterFromConfiguration("serviceRegion", "Parameters:Region");
-var serviceWorkload = builder.AddParameterFromConfiguration("serviceWorkload", "Parameters:Workload");
-var serviceOrganization = builder.AddParameterFromConfiguration("serviceOrganization", "Parameters:Organization");
+var serviceEnvironment = builder.AddParameter("serviceEnvironment");
+var serviceProject = builder.AddParameter("serviceProject");
+var serviceInstance = builder.AddParameter("serviceInstance");
+var serviceRegion = builder.AddParameter("serviceRegion");
+var serviceWorkload = builder.AddParameter("serviceWorkload");
+var serviceOrganization = builder.AddParameter("serviceOrganization");
 
 var context = new ServiceContext
 {
